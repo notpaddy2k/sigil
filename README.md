@@ -1,1 +1,1 @@
-# obsidian-context-system
+# obsidian-mcp
