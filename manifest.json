@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/agenticnotetaking/obsidian-context-system.git"
+    "url": "https://github.com/notpaddy2k/sigil.git"
   },
-  "homepage": "https://github.com/agenticnotetaking/obsidian-context-system",
-  "support": "https://github.com/agenticnotetaking/obsidian-context-system/issues",
+  "homepage": "https://github.com/notpaddy2k/sigil",
+  "support": "https://github.com/notpaddy2k/sigil/issues",
   "license": "MIT",
   "keywords": ["obsidian", "notes", "knowledge-base", "vault", "markdown", "pkm", "second-brain", "sigil"],
   "server": {

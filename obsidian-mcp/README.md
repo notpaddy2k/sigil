@@ -1,4 +1,4 @@
-# obsidian-mcp
+# Sigil
 
 MCP server for your Obsidian vault. Gives Claude structured access to your files, attachments, and knowledge structure via the Obsidian CLI.
 
@@ -19,7 +19,11 @@ MCP server for your Obsidian vault. Gives Claude structured access to your files
 ### Windows extra step
 You need the `Obsidian.com` file from the `#insider-desktop-release` channel on the Obsidian Discord. Place it in the same folder as `Obsidian.exe`.
 
-## Setup
+## Install as Claude Desktop extension
+
+Download `sigil.mcpb` from the [latest release](https://github.com/notpaddy2k/sigil/releases) and install it in Claude Desktop.
+
+## Manual setup
 
 ### macOS / Linux
 ```bash
@@ -42,22 +46,22 @@ Copy the skills into your vault so they sync across machines:
 your-vault/
   .claude/
     skills/
-      obsidian.md          ← main task workflow skill
-      obsidian-review.md   ← monthly review skill
+      obsidian.md          <- main task workflow skill
+      obsidian-review.md   <- monthly review skill
 ```
 
 ## Vault structure expected
 
 ```
 /vault-root
-  2026-02-18.md        ← today's daily note + file drop zone
-  new-file.pdf         ← drop new files here
+  2026-02-18.md        <- today's daily note + file drop zone
+  new-file.pdf         <- drop new files here
 
-/artifacts             ← organized attachments (subfoldered by topic)
-/notes                 ← task summary notes
-/tags                  ← tag MOC notes  
-/periodic/daily        ← archived daily notes
-/templates             ← note templates
+/artifacts             <- organized attachments (subfoldered by topic)
+/notes                 <- task summary notes
+/tags                  <- tag MOC notes
+/periodic/daily        <- archived daily notes
+/templates             <- note templates
 ```
 
 ## Usage
@@ -74,15 +78,6 @@ your-vault/
 - Claude audits draft tags and stable tags
 - You approve changes
 - Claude writes a review report note
-
-## Tools
-
-| Tool | What it does |
-|------|-------------|
-| `list_files(folder)` | List files in vault root or a subfolder |
-| `read_file(path)` | Read any file — text or base64 for binary |
-| `move_file(source, destination)` | Move a file within the vault |
-| `complete_task(...)` | Write note + update tags + move files + archive daily note |
 
 ## Cross-machine setup
 

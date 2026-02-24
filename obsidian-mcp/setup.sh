@@ -1,5 +1,5 @@
 #!/bin/bash
-# setup.sh — Install obsidian-mcp and configure Claude Desktop
+# setup.sh — Install Sigil and configure Claude Desktop
 # macOS and Linux
 
 set -e
@@ -65,7 +65,7 @@ else:
     config = {}
 
 config.setdefault("mcpServers", {})
-config["mcpServers"]["obsidian"] = new_entry
+config["mcpServers"]["sigil"] = new_entry
 
 with open(config_file, "w") as f:
     json.dump(config, f, indent=2)
