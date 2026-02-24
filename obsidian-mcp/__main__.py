@@ -1,9 +1,9 @@
 """
-Obsidian MCP – entry point for both pip-installed and .mcpb usage.
+Sigil for Obsidian – entry point for both pip-installed and .mcpb usage.
 
 When launched from a .mcpb extension, dependencies may not be installed yet.
 This module:
-  1. Adds the parent directory to sys.path (so `obsidian-mcp` package imports work)
+  1. Adds the parent directory to sys.path (so package imports work)
   2. Auto-installs missing deps on first run (with lock-file to prevent races)
   3. Imports and starts the MCP server
 """
@@ -28,7 +28,7 @@ DEPS = {
     "mcp": "mcp[cli]>=1.2.0",
 }
 
-_lock_path = os.path.join(tempfile.gettempdir(), "obsidian-mcp-install.lock")
+_lock_path = os.path.join(tempfile.gettempdir(), "sigil-install.lock")
 
 
 def _ensure_deps():
@@ -45,7 +45,7 @@ def _ensure_deps():
 
     # Lock-file: if another instance is already installing, wait for it
     if os.path.exists(_lock_path):
-        print("[obsidian-mcp] Another instance is installing deps, waiting…", file=sys.stderr)
+        print("[sigil] Another instance is installing deps, waiting…", file=sys.stderr)
         deadline = time.time() + 60
         while os.path.exists(_lock_path) and time.time() < deadline:
             time.sleep(2)
@@ -68,7 +68,7 @@ def _ensure_deps():
         pass
 
     try:
-        print(f"[obsidian-mcp] Installing: {', '.join(missing)}", file=sys.stderr)
+        print(f"[sigil] Installing: {', '.join(missing)}", file=sys.stderr)
         cmd = [sys.executable, "-m", "pip", "install", "--quiet"] + missing
         try:
             subprocess.check_call(cmd, timeout=120)
@@ -79,7 +79,7 @@ def _ensure_deps():
                 subprocess.check_call(cmd_user, timeout=120)
             except Exception as e:
                 print(
-                    f"[obsidian-mcp] Auto-install failed: {e}\n"
+                    f"[sigil] Auto-install failed: {e}\n"
                     f"  Please run manually:  {sys.executable} -m pip install {' '.join(missing)}",
                     file=sys.stderr,
                 )

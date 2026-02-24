@@ -3,13 +3,13 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "obsidian-mcp"
+name = "sigil"
 version = "0.1.0"
-description = "Obsidian MCP — give Claude full control of Obsidian"
+description = "Sigil — give Claude full control of Obsidian"
 requires-python = ">=3.10"
 dependencies = [
     "mcp[cli]>=1.2.0",
 ]
 
 [project.scripts]
-obsidian-mcp = "obsidian-mcp.__main__:main"
+sigil = "obsidian-mcp.__main__:main"
