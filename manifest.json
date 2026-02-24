@@ -1,0 +1,149 @@
+{
+  "manifest_version": "0.3",
+  "name": "obsidian-mcp",
+  "display_name": "Obsidian MCP",
+  "version": "0.1.0",
+  "description": "Give Claude full control of Obsidian — 89 tools for vaults, files, notes, search, tags, sync, plugins and more",
+  "long_description": "Obsidian MCP is an MCP server that lets Claude control Obsidian via the Obsidian CLI. 89 tools across 24 domains: daily notes, files & folders, search, tags, tasks, properties, links & graph, templates, outline, vault management, file history, bookmarks, random notes, word count, workspace, aliases, commands, sync, plugins, bases, themes, CSS snippets, tabs, and hotkeys.",
+  "author": {
+    "name": "notpaddy2k",
+    "url": "https://github.com/notpaddy2k"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agenticnotetaking/obsidian-context-system.git"
+  },
+  "homepage": "https://github.com/agenticnotetaking/obsidian-context-system",
+  "support": "https://github.com/agenticnotetaking/obsidian-context-system/issues",
+  "license": "MIT",
+  "keywords": ["obsidian", "notes", "knowledge-base", "vault", "markdown", "pkm", "second-brain"],
+  "server": {
+    "type": "python",
+    "entry_point": "obsidian-mcp/__main__.py",
+    "mcp_config": {
+      "command": "python",
+      "args": ["${__dirname}/obsidian-mcp/__main__.py"]
+    }
+  },
+  "tools": [
+    { "name": "obsidian_help", "description": "Show list of all available Obsidian CLI commands" },
+    { "name": "obsidian_version", "description": "Show Obsidian version" },
+
+    { "name": "daily_read", "description": "Read today's daily note contents" },
+    { "name": "daily_open", "description": "Open today's daily note" },
+    { "name": "daily_append", "description": "Append content to today's daily note" },
+    { "name": "daily_prepend", "description": "Prepend content to today's daily note" },
+    { "name": "daily_path", "description": "Get the file path of today's daily note without opening it" },
+
+    { "name": "file_info", "description": "Show file info" },
+    { "name": "files_list", "description": "List files in the vault" },
+    { "name": "folder_info", "description": "Show folder info" },
+    { "name": "folders_list", "description": "List folders in the vault" },
+    { "name": "file_open", "description": "Open a file in Obsidian" },
+    { "name": "file_create", "description": "Create or overwrite a file" },
+    { "name": "file_read", "description": "Read file contents" },
+    { "name": "file_append", "description": "Append content to a file" },
+    { "name": "file_prepend", "description": "Prepend content after frontmatter of a file" },
+    { "name": "file_move", "description": "Move or rename a file" },
+    { "name": "file_delete", "description": "Delete a file (moves to trash by default)" },
+    { "name": "file_rename", "description": "Rename a file in place (stays in same folder)" },
+
+    { "name": "search", "description": "Search vault for text" },
+    { "name": "search_context", "description": "Search vault and return matching lines with surrounding context" },
+
+    { "name": "tags_list", "description": "List tags" },
+    { "name": "tag_info", "description": "Get tag info including files that use it" },
+
+    { "name": "tasks_list", "description": "List tasks" },
+    { "name": "task_update", "description": "Show or update a task" },
+
+    { "name": "properties_list", "description": "List properties" },
+    { "name": "property_set", "description": "Set a property on a file" },
+    { "name": "property_remove", "description": "Remove a property from a file" },
+    { "name": "property_read", "description": "Read a property value from a file" },
+
+    { "name": "backlinks", "description": "List backlinks to a file" },
+    { "name": "links", "description": "List outgoing links from a file" },
+    { "name": "orphans", "description": "List files with no incoming links" },
+    { "name": "unresolved_links", "description": "List unresolved links in vault" },
+    { "name": "deadends", "description": "List files with no outgoing links (graph dead ends)" },
+
+    { "name": "templates_list", "description": "List templates" },
+    { "name": "template_read", "description": "Read template content" },
+    { "name": "template_insert", "description": "Insert a template into the currently active file" },
+
+    { "name": "outline", "description": "Show headings for a file" },
+
+    { "name": "vault_info", "description": "Show vault info" },
+    { "name": "vaults_list", "description": "List all known vaults" },
+    { "name": "vault_reload", "description": "Reload the vault (refreshes file index without restarting)" },
+    { "name": "app_restart", "description": "Restart the Obsidian app" },
+
+    { "name": "diff", "description": "List or compare versions from file history" },
+    { "name": "history_read", "description": "Read a local history version" },
+    { "name": "history_restore", "description": "Restore a local history version" },
+    { "name": "history_versions", "description": "List available local history versions for a file" },
+    { "name": "history_list", "description": "List all files that have local history entries" },
+
+    { "name": "bookmarks", "description": "List bookmarks" },
+    { "name": "bookmark_add", "description": "Add a bookmark" },
+
+    { "name": "random_note", "description": "Open a random note" },
+    { "name": "random_read", "description": "Read a random note (includes path)" },
+
+    { "name": "wordcount", "description": "Count words and characters in a file" },
+
+    { "name": "workspace_info", "description": "Show workspace tree" },
+    { "name": "recents", "description": "List recently opened files" },
+
+    { "name": "aliases", "description": "List aliases" },
+
+    { "name": "commands_list", "description": "List available command IDs" },
+    { "name": "command_execute", "description": "Execute an Obsidian command by ID" },
+
+    { "name": "sync_status", "description": "Show sync status and usage" },
+    { "name": "sync_toggle", "description": "Pause or resume Obsidian Sync" },
+    { "name": "sync_deleted", "description": "List deleted files in sync history" },
+    { "name": "sync_history", "description": "List sync version history for a file" },
+    { "name": "sync_read", "description": "Read a specific sync version of a file" },
+    { "name": "sync_restore", "description": "Restore a specific sync version of a file" },
+
+    { "name": "plugins_list", "description": "List all installed plugins (core and community)" },
+    { "name": "plugins_enabled", "description": "List only enabled plugins" },
+    { "name": "plugin_info", "description": "Get info about a specific plugin" },
+    { "name": "plugin_install", "description": "Install a community plugin by ID" },
+    { "name": "plugin_uninstall", "description": "Uninstall a community plugin" },
+    { "name": "plugin_enable", "description": "Enable an installed plugin" },
+    { "name": "plugin_disable", "description": "Disable a plugin" },
+    { "name": "plugin_reload", "description": "Reload a plugin (useful for applying updates without restarting)" },
+    { "name": "plugins_restrict", "description": "Toggle restricted mode (disables all community plugins when on)" },
+
+    { "name": "bases_list", "description": "List all base files in the vault (Obsidian Bases feature)" },
+    { "name": "base_views", "description": "List views in a base file" },
+    { "name": "base_query", "description": "Query a base and return results" },
+    { "name": "base_create", "description": "Create a new item in a base" },
+
+    { "name": "themes_list", "description": "List installed themes" },
+    { "name": "theme_info", "description": "Show active theme or get info about a specific theme" },
+    { "name": "theme_set", "description": "Set the active theme" },
+    { "name": "theme_install", "description": "Install a community theme" },
+    { "name": "theme_uninstall", "description": "Uninstall a theme" },
+
+    { "name": "snippets_list", "description": "List all installed CSS snippets" },
+    { "name": "snippets_enabled", "description": "List currently enabled CSS snippets" },
+    { "name": "snippet_enable", "description": "Enable a CSS snippet" },
+    { "name": "snippet_disable", "description": "Disable a CSS snippet" },
+
+    { "name": "tabs_list", "description": "List currently open tabs" },
+    { "name": "tab_open", "description": "Open a new tab, optionally with a file or view" },
+
+    { "name": "hotkeys_list", "description": "List hotkeys" },
+    { "name": "hotkey_info", "description": "Get the hotkey assigned to a specific command" }
+  ],
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "python": ">=3.10"
+    }
+  }
+}
