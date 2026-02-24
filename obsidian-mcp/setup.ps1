@@ -1,4 +1,4 @@
-# setup.ps1 — Install obsidian-mcp and configure Claude Desktop
+# setup.ps1 — Install Sigil and configure Claude Desktop
 # Run: powershell -ExecutionPolicy Bypass -File setup.ps1
 
 $ErrorActionPreference = "Stop"
@@ -51,7 +51,7 @@ if (Test-Path $ConfigFile) {
 if (-not $Config.mcpServers) {
     $Config | Add-Member -NotePropertyName mcpServers -NotePropertyValue @{}
 }
-$Config.mcpServers | Add-Member -NotePropertyName obsidian -NotePropertyValue $NewEntry -Force
+$Config.mcpServers | Add-Member -NotePropertyName sigil -NotePropertyValue $NewEntry -Force
 $Config | ConvertTo-Json -Depth 10 | Set-Content $ConfigFile
 
 Write-Host "✅ Config: $ConfigFile" -ForegroundColor Green

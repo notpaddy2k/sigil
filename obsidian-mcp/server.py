@@ -1,5 +1,5 @@
 """
-Obsidian MCP Server
+Sigil for Obsidian — MCP Server
 Exposes every non-developer Obsidian CLI command as an MCP tool.
 Server only changes if Obsidian CLI changes. Workflow logic lives in skills.
 """

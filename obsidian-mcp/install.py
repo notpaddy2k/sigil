@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-install.py — Cross-platform installer for obsidian-mcp
+install.py — Cross-platform installer for Sigil
 Works on macOS, Linux, and Windows.
 
 The venv is stored in a local cache directory (NOT inside the repo)
@@ -73,15 +73,15 @@ def get_local_venv_dir(script_dir: Path) -> Path:
     Uses the platform cache dir so the venv never ends up inside
     Google Drive / iCloud / OneDrive.
 
-    Mac:     ~/Library/Caches/obsidian-mcp
-    Windows: %LOCALAPPDATA%/obsidian-mcp
-    Linux:   ~/.cache/obsidian-mcp
+    Mac:     ~/Library/Caches/sigil
+    Windows: %LOCALAPPDATA%/sigil
+    Linux:   ~/.cache/sigil
     """
     p = get_platform()
     # Use a hash of the script_dir so multiple installs don't collide
     import hashlib
     dir_hash = hashlib.md5(str(script_dir).encode()).hexdigest()[:8]
-    name = f"obsidian-mcp-{dir_hash}"
+    name = f"sigil-{dir_hash}"
 
     if p == "mac":
         return Path.home() / "Library" / "Caches" / name
@@ -206,17 +206,17 @@ def configure_claude(script_dir: Path, venv_dir: Path, uv_path: Path, dry_run: b
         config = {}
 
     config.setdefault("mcpServers", {})
-    existing = config["mcpServers"].get("obsidian")
+    existing = config["mcpServers"].get("sigil")
 
     if existing == new_entry:
         ok("Claude config already up to date")
         return
 
-    config["mcpServers"]["obsidian"] = new_entry
+    config["mcpServers"]["sigil"] = new_entry
 
     if dry_run:
         info(f"DRY RUN: would write to {config_file}:")
-        print(json.dumps({"mcpServers": {"obsidian": new_entry}}, indent=2))
+        print(json.dumps({"mcpServers": {"sigil": new_entry}}, indent=2))
         return
 
     with open(config_file, "w") as f:
@@ -229,7 +229,7 @@ def configure_claude(script_dir: Path, venv_dir: Path, uv_path: Path, dry_run: b
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Install obsidian-mcp and configure Claude Desktop"
+        description="Install Sigil and configure Claude Desktop"
     )
     parser.add_argument(
         "--dry-run",
@@ -238,7 +238,7 @@ def main():
     )
     args = parser.parse_args()
 
-    print("\n🔧 obsidian-mcp installer")
+    print("\n🔧 Sigil installer")
     print(f"   Platform: {platform.system()} {platform.machine()}")
     if args.dry_run:
         print("   Mode: DRY RUN (no changes will be made)")
