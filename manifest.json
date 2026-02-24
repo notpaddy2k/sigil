@@ -1,10 +1,10 @@
 {
   "manifest_version": "0.3",
-  "name": "obsidian-mcp",
-  "display_name": "Obsidian MCP",
+  "name": "sigil",
+  "display_name": "Sigil for Obsidian",
   "version": "0.1.0",
   "description": "Give Claude full control of Obsidian — 89 tools for vaults, files, notes, search, tags, sync, plugins and more",
-  "long_description": "Obsidian MCP is an MCP server that lets Claude control Obsidian via the Obsidian CLI. 89 tools across 24 domains: daily notes, files & folders, search, tags, tasks, properties, links & graph, templates, outline, vault management, file history, bookmarks, random notes, word count, workspace, aliases, commands, sync, plugins, bases, themes, CSS snippets, tabs, and hotkeys.",
+  "long_description": "Sigil is an MCP server that lets Claude control Obsidian via the Obsidian CLI. 89 tools across 24 domains: daily notes, files & folders, search, tags, tasks, properties, links & graph, templates, outline, vault management, file history, bookmarks, random notes, word count, workspace, aliases, commands, sync, plugins, bases, themes, CSS snippets, tabs, and hotkeys.",
   "author": {
     "name": "notpaddy2k",
     "url": "https://github.com/notpaddy2k"
@@ -16,7 +16,7 @@
   "homepage": "https://github.com/agenticnotetaking/obsidian-context-system",
   "support": "https://github.com/agenticnotetaking/obsidian-context-system/issues",
   "license": "MIT",
-  "keywords": ["obsidian", "notes", "knowledge-base", "vault", "markdown", "pkm", "second-brain"],
+  "keywords": ["obsidian", "notes", "knowledge-base", "vault", "markdown", "pkm", "second-brain", "sigil"],
   "server": {
     "type": "python",
     "entry_point": "obsidian-mcp/__main__.py",

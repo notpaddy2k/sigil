@@ -10,7 +10,7 @@ import shutil
 import platform
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("obsidian")
+mcp = FastMCP("sigil")
 
 
 # ── Core CLI runner ───────────────────────────────────────────────────────────
