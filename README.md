@@ -1,1 +1,1 @@
-# obsidian-mcp
+# Sigil
